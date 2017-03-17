@@ -13,6 +13,7 @@ function ajouter_recherche()
 	}
 }
 
+<<<<<<< HEAD
 function supprimer_recherche(e)
 {
 
@@ -23,6 +24,16 @@ function supprimer_recherche(e)
 function selectionner_recherche(e)
 {
 
+=======
+function supprimer_recherche(e){
+	e.parent().remove();
+}
+
+
+function selectionner_recherche(e){
+	label = e.text();
+	zone_recherche = $(#zone_saisie).text(label);
+>>>>>>> 231fe191be8fa1b0724467abba6f052f282af2fa
 }
 
 
