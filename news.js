@@ -10,14 +10,20 @@ function ajouter_recherche()
 		("<p class=\"titre-recherche\"><label>"+$("#zone_saisie").val()+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
 		$("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
 		$("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
+		var rechercheJSON=JSON.stringify(recherches);
+		$.cookie("recherches",recherches,{ expires : 1000 });
 	}
 }
+
+
 
 function supprimer_recherche(e){
 	parent = e.parent();
 	parent.remove();
 	pos = recherches.indexOf(e.text());
 	recherches.split(pos, 1);
+	var rechercheJSON=JSON.stringify(recherches);
+	$.cookie("recherches",recherches,{ expires : 1000 });
 }
 
 
