@@ -14,15 +14,17 @@ function ajouter_recherche()
 }
 
 function supprimer_recherche(e){
-	parent = e.parent();
-	parent.remove();
-	pos = recherches.indexOf(e.text());
+	parent = $(e).parent();
+	console.log(parent);
+	pos = recherches.indexOf($(e).html());
 	recherches.split(pos, 1);
+	parent.remove();
+
 }
 
 
 function selectionner_recherche(e){
-	recherche_courante = e.text();
+	recherche_courante = $(e).text();
 	zone_recherche = $("#zone_saisie").text(recherche_courante);
 }
 
