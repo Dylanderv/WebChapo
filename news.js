@@ -11,7 +11,6 @@ function ajouter_recherche()
 		$("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
 		$("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
 		var rechercheJSON=JSON.stringify(recherches);
-		console.log(rechercheJSON);
 		$.cookie("recherches",recherches,{ expires : 1000 });
 	}
 }
@@ -19,35 +18,24 @@ function ajouter_recherche()
 
 
 function supprimer_recherche(e){
-	parent = $(e).parent();
-  console.log(parent);
-  pos = recherches.indexOf($(e).html());
-  recherches.split(pos, 1);
-  parent.remove();
-
+	parent = e.parent();
+	parent.remove();
+	pos = recherches.indexOf(e.text());
+	recherches.split(pos, 1);
+	var rechercheJSON=JSON.stringify(recherches);
+	$.cookie("recherches",recherches,{ expires : 1000 });
 }
 
 
 function selectionner_recherche(e){
-	recherche_courante = $(e).text();
-  zone_recherche = $("#zone_saisie").text(recherche_courante);
+	recherche_courante = e.text();
+	zone_recherche = $("#zone_saisie").text(recherche_courante);
 }
 
 
+function init()
+{
 
-function init(){
-  cookie = $.cookie('recherches');
-  if(cookie != undefined){
-    recherches = cookie;
-		console.log(cookie);
-		for(var i = 0; i < recherches.length; i++){
-      $("#recherches-stockees").append
-	      ("<p class=\"titre-recherche\"><label>"+$("#zone_saisie").val()+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
-      $("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
-      $("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
-		}
-
-  }
 }
 
 
