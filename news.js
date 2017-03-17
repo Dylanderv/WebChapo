@@ -11,6 +11,7 @@ function ajouter_recherche()
 		$("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
 		$("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
 		var rechercheJSON=JSON.stringify(recherches);
+		console.log(rechercheJSON);
 		$.cookie("recherches",recherches,{ expires : 1000 });
 	}
 }
