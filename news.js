@@ -30,25 +30,26 @@ function supprimer_recherche(e){
 
 function selectionner_recherche(e){
 	recherche_courante = $(e).html();
- zone_recherche = $("#zone_saisie");
- zone_recherche.val(recherche_courante);
+ 	var zone_recherche = $("#zone_saisie");
+ 	zone_recherche.val(recherche_courante);
 }
 
 
 
 function init(){
-  cookie = $.cookie('recherches');
-  if(cookie != undefined){
-    recherches = cookie;
-		console.log(cookie);
+  var mdr = $.cookie('recherches');
+  if(mdr != undefined){
+    recherches = mdr.split(",");
+		console.log(recherches);
 		for(var i = 0; i < recherches.length; i++){
       $("#recherches-stockees").append
-	      ("<p class=\"titre-recherche\"><label>"+$("#zone_saisie").val()+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
+	      ("<p class=\"titre-recherche\"><label>"+recherches[i]+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
       $("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
       $("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
 		}
 
   }
+
 }
 
 
