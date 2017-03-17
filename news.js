@@ -8,14 +8,13 @@ function ajouter_recherche()
 }
 
 function supprimer_recherche(e)
-{ 
-
-
+{
+	e.parent().remove();
 }
 
 
 function selectionner_recherche(e)
-{ 
+{
 
 }
 
@@ -28,37 +27,25 @@ function init()
 
 function recherche_nouvelles()
 {
-	
-	
+
+
 }
 
 
 function maj_resultats(res)
 {
 
-	
+
 }
 
 
 function sauve_news(e)
 {
-	
+
 }
 
 
 function supprime_news(e)
 {
-	
+
 }
-
-
-
-
-
-	
-
-
-
-
-
-
