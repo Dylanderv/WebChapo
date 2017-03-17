@@ -26,14 +26,16 @@ function selectionner_recherche(e)
 
 =======
 function supprimer_recherche(e){
-	e.parent().remove();
+	parent = e.parent();
+	parent.remove();
+	pos = recherches.indexOf(e.text());
+	recherches.split(pos, 1);
 }
 
 
 function selectionner_recherche(e){
-	label = e.text();
-	zone_recherche = $(#zone_saisie).text(label);
->>>>>>> 231fe191be8fa1b0724467abba6f052f282af2fa
+	recherche_courante = e.text();
+	zone_recherche = $(#zone_saisie).text(recherche_courante);
 }
 
 
