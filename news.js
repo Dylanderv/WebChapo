@@ -31,14 +31,9 @@ function supprimer_recherche(e){
 
 
 function selectionner_recherche(e){
-<<<<<<< HEAD
-	recherche_courante = e.text();
-	zone_recherche = $("#zone_saisie").text(recherche_courante);
-=======
 	recherche_courante = $(e).html();
  zone_recherche = $("#zone_saisie");
  zone_recherche.val(recherche_courante);
->>>>>>> 8ca6d6076aab795a30256517276b7d2b15dc1d73
 }
 
 
