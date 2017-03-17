@@ -12,7 +12,6 @@ function ajouter_recherche()
 		$("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
 		$("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
 		var rechercheJSON=JSON.stringify(recherches);
-		console.log(rechercheJSON);
 		$.cookie("recherches",recherches,{ expires : 1000 });
 	}
 }
@@ -20,10 +19,13 @@ function ajouter_recherche()
 
 
 function supprimer_recherche(e){
-	parent = $(e).parent();
-  pos = recherches.indexOf($(e).html());
-	recherches.splice(pos, 1);
-  parent.remove();
+
+	parent = e.parent();
+	parent.remove();
+	pos = recherches.indexOf(e.text());
+	recherches.split(pos, 1);
+	var rechercheJSON=JSON.stringify(recherches);
+	$.cookie("recherches",recherches,{ expires : 1000 });
 
 }
 
@@ -35,6 +37,8 @@ function selectionner_recherche(e){
 }
 
 
+function init()
+{
 
 function init(){
   var mdr = $.cookie('recherches');
