@@ -23,7 +23,7 @@ function supprimer_recherche(e){
 
 function selectionner_recherche(e){
 	recherche_courante = e.text();
-	zone_recherche = $(#zone_saisie).text(recherche_courante);
+	zone_recherche = $("#zone_saisie").text(recherche_courante);
 }
 
 
