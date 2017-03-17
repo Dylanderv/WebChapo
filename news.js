@@ -7,15 +7,14 @@ function ajouter_recherche()
 
 }
 
-function supprimer_recherche(e)
-{
+function supprimer_recherche(e){
 	e.parent().remove();
 }
 
 
-function selectionner_recherche(e)
-{
-
+function selectionner_recherche(e){
+	label = e.text();
+	zone_recherche = $(#zone_saisie).text(label);
 }
 
 
