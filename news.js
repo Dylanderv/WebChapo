@@ -13,18 +13,6 @@ function ajouter_recherche()
 	}
 }
 
-<<<<<<< HEAD
-function supprimer_recherche(e)
-{
-
-
-}
-
-
-function selectionner_recherche(e)
-{
-
-=======
 function supprimer_recherche(e){
 	parent = e.parent();
 	parent.remove();
