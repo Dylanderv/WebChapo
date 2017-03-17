@@ -8,8 +8,8 @@ function ajouter_recherche()
 		recherches.push($("#zone_saisie").val());
 		$("#recherches-stockees").append
 		("<p class=\"titre-recherche\"><label>"+$("#zone_saisie").val()+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
-		$("#recherches-stockees:last-child:first-child").attr("onclick","selectionner_recherche(this)");
-		$("#recherches-stockees:last-child:last-child").attr("onclick","supprimer_recherche(this)");
+		$("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
+		$("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
 	}
 }
 
@@ -23,7 +23,7 @@ function supprimer_recherche(e){
 
 function selectionner_recherche(e){
 	recherche_courante = e.text();
-	zone_recherche = $(#zone_saisie).text(recherche_courante);
+	zone_recherche = $("#zone_saisie").text(recherche_courante);
 }
 
 
