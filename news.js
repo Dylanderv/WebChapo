@@ -59,6 +59,7 @@ function recherche_nouvelles()
 	$("#resultats").empty();
 	$("#wait").css("display","block");
 	var data = $("#zone_saisie").val();
+	recherche_courante = data;
 	$.get("search.php?data="+data,maj_resultats);
 }
 
@@ -86,6 +87,7 @@ function sauve_news(e)
 		recherche_courante_news.push(objetAdd);
 	}
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
+	console.log(recherche_courante);
 	$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
 }
 
