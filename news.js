@@ -65,7 +65,19 @@ function recherche_nouvelles()
 
 function maj_resultats(res)
 {
-
+	$("#wait").css("display", "none");
+	var resJSON = JSON.parse(res);
+	console.log(resJSON);
+	for(var i = 0; i < resJSON.length; i++){
+		$("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href=\""+ resJSON[i].url +"\" target=\"_blank\"> "+resJSON[i].titre +" </a><span class=\"date_news\">"+resJSON[i].date +"</span><span class=\"action_news\" onclick=\"sauve_news(this)\"><img src=\"horloge15.jpg\"/></span></p>");
+	}
+	/*<p class="titre_result">
+	 	<a class="titre_news" href="url" target="_blank"> titre </a>
+		<span class="date_news">date</span>
+		<span class="action_news" onclick="sauve_news(this)">
+			< img src="horloge15.jpg"/>
+		</span>
+	</p>*/
 
 }
 
