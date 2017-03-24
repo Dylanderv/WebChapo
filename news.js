@@ -78,12 +78,12 @@ function sauve_news(e)
 {
 	$(e).find('img').attr('src','disk15.jpg');
 	$(e).attr('onclick','supprime_news(this)');
-	var date_=$(e).prev().val().
+	var date_=$(e).prev().val();
 	var url_=$(e).prev().prev().attr("href");
 	var titre_=$(e).prev().prev().val();
 	var objetAdd = {titre : titre_, date : date_, url: url_};
 	if(indexOf(objetAdd,recherche_courante_news) == -1){
-		recherche_courante_news.append(objetAdd);
+		recherche_courante_news.push(objetAdd);
 	}
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
 	$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
