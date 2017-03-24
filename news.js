@@ -34,6 +34,11 @@ function selectionner_recherche(e){
 	recherche_courante = $(e).html();
  	var zone_recherche = $("#zone_saisie");
  	zone_recherche.val(recherche_courante);
+	var tab=$.cookie($(e).text());
+	var resJSON = JSON.parse(tab);
+	for(var i = 0; i < resJSON.length; i++){
+		$("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href=\""+ resJSON[i].url +"\" target=\"_blank\"> "+resJSON[i].titre +" </a><span class=\"date_news\">"+resJSON[i].date +"</span><span class=\"action_news\" onclick=\"sauve_news(this)\"><img src=\"disk15.jpg\"/></span></p>");
+	}
 }
 
 function init(){
@@ -99,7 +104,7 @@ function supprime_news(e)
 	var url_=$(e).prev().prev().attr("href");
 	var titre_=$(e).prev().prev().html();
 	var objDel = {titre : titre_, date : date_, url: url_};
-	var indexDel = indexOf(recherche_courante_news, objDel)
+	var indexDel = indexOf(recherche_courante_news, objDel);
 	if(indexDel >= 0){
 		recherche_courante_news.splice(indexDel - 1, 1);
 	}
