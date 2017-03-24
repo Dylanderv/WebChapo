@@ -71,14 +71,6 @@ function maj_resultats(res)
 	for(var i = 0; i < resJSON.length; i++){
 		$("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href=\""+ resJSON[i].url +"\" target=\"_blank\"> "+resJSON[i].titre +" </a><span class=\"date_news\">"+resJSON[i].date +"</span><span class=\"action_news\" onclick=\"sauve_news(this)\"><img src=\"horloge15.jpg\"/></span></p>");
 	}
-	/*<p class="titre_result">
-	 	<a class="titre_news" href="url" target="_blank"> titre </a>
-		<span class="date_news">date</span>
-		<span class="action_news" onclick="sauve_news(this)">
-			< img src="horloge15.jpg"/>
-		</span>
-	</p>*/
-
 }
 
 
@@ -100,5 +92,12 @@ function sauve_news(e)
 
 function supprime_news(e)
 {
+	$(e).find('img').attr('src', 'horloge15.jpg');
+	$(e).attr('onclick','sauve_news(this)');
+	var objDel = {url : $(e).prev().prev().attr("href"), date : $(e).prev().val(), titre : $(e).prev().prev().val()};
+	var indexDel = indexOf(objDel , recherche_courante_news)
+	if(indexDel >= 0){
+		splice(indexDel, 1);
+	}
 
 }
