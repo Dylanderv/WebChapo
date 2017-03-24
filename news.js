@@ -99,5 +99,6 @@ function supprime_news(e)
 	if(indexDel >= 0){
 		splice(indexDel, 1);
 	}
-
+	var rechercheJSON=JSON.stringify(recherche_courante_news);
+	$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
 }
