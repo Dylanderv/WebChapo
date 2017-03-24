@@ -20,10 +20,10 @@ function ajouter_recherche()
 
 function supprimer_recherche(e){
 
-	parent = e.parent();
-	parent.remove();
-	pos = recherches.indexOf(e.text());
-	recherches.split(pos, 1);
+	parent = $(e).parent();
+	pos = recherches.indexOf($(e).html());
+	recherches.splice(pos, 1);
+  parent.remove();
 	var rechercheJSON=JSON.stringify(recherches);
 	$.cookie("recherches",recherches,{ expires : 1000 });
 
@@ -35,10 +35,6 @@ function selectionner_recherche(e){
  	var zone_recherche = $("#zone_saisie");
  	zone_recherche.val(recherche_courante);
 }
-
-
-function init()
-{
 
 function init(){
   var mdr = $.cookie('recherches');
