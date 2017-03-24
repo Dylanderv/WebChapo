@@ -56,8 +56,10 @@ function init(){
 
 function recherche_nouvelles()
 {
-
-
+	$("#resultats").empty();
+	$("#wait").css("display","block");
+	var data = $("#zone_saisie").val();
+	$.get("search.php?data="+data,maj_resultats);
 }
 
 
