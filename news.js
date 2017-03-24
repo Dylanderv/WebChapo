@@ -78,7 +78,7 @@ function sauve_news(e)
 {
 	$(e).find('img').attr('src','disk15.jpg');
 	$(e).attr('onclick','supprime_news(this)');
-	var date_=$(e).prev().val().
+	var date_=$(e).prev().val();
 	var url_=$(e).prev().prev().attr("href");
 	var titre_=$(e).prev().prev().val();
 	var objetAdd = {titre : titre_, date : date_, url: url_};
