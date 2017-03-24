@@ -79,11 +79,12 @@ function sauve_news(e)
 {
 	$(e).find('img').attr('src','disk15.jpg');
 	$(e).attr('onclick','supprime_news(this)');
-	var date_=$(e).prev().val();
+	var date_=$(e).prev().html();
 	var url_=$(e).prev().prev().attr("href");
-	var titre_=$(e).prev().prev().val();
+	var titre_=$(e).prev().prev().html();
 	var objetAdd = {titre : titre_, date : date_, url: url_};
-	if(indexOf(objetAdd,recherche_courante_news) == -1){
+	console.log(objetAdd);
+	if(indexOf(recherche_courante_news, objetAdd) == -1){
 		recherche_courante_news.push(objetAdd);
 	}
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
@@ -96,10 +97,18 @@ function supprime_news(e)
 {
 	$(e).find('img').attr('src', 'horloge15.jpg');
 	$(e).attr('onclick','sauve_news(this)');
-	var objDel = {url : $(e).prev().prev().attr("href"), date : $(e).prev().val(), titre : $(e).prev().prev().val()};
-	var indexDel = indexOf(objDel , recherche_courante_news)
+	var date_=$(e).prev().html();
+	var url_=$(e).prev().prev().attr("href");
+	var titre_=$(e).prev().prev().html();
+	var objDel = {titre : titre_, date : date_, url: url_};
+	console.log(objDel);
+	var indexDel = indexOf(recherche_courante_news, objDel)
+	console.log(indexDel);
+	console.log(recherche_courante_news);
 	if(indexDel >= 0){
-		splice(indexDel, 1);
+		console.log(recherche_courante_news);
+		recherche_courante_news.splice(indexDel - 1, 1);
+		console.log(recherche_courante_news);
 	}
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
 	$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
