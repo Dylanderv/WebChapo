@@ -83,12 +83,10 @@ function sauve_news(e)
 	var url_=$(e).prev().prev().attr("href");
 	var titre_=$(e).prev().prev().html();
 	var objetAdd = {titre : titre_, date : date_, url: url_};
-	console.log(objetAdd);
 	if(indexOf(recherche_courante_news, objetAdd) == -1){
 		recherche_courante_news.push(objetAdd);
 	}
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
-	console.log(recherche_courante);
 	$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
 }
 
@@ -101,14 +99,9 @@ function supprime_news(e)
 	var url_=$(e).prev().prev().attr("href");
 	var titre_=$(e).prev().prev().html();
 	var objDel = {titre : titre_, date : date_, url: url_};
-	console.log(objDel);
 	var indexDel = indexOf(recherche_courante_news, objDel)
-	console.log(indexDel);
-	console.log(recherche_courante_news);
 	if(indexDel >= 0){
-		console.log(recherche_courante_news);
 		recherche_courante_news.splice(indexDel - 1, 1);
-		console.log(recherche_courante_news);
 	}
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
 	$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
