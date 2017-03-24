@@ -72,7 +72,8 @@ function maj_resultats(res)
 
 function sauve_news(e)
 {
-
+	e.setAttribute('src','disk15.jpg');
+	e.parentElement.setAttribute('onclick','supprime_news(this)')
 }
 
 
