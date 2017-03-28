@@ -74,7 +74,7 @@ function init(){
 	  }
   });
 	$( "#zone_saisie" ).autocomplete({
-		source: availableTags
+		source: recherches_tapees
 	});
 }
 
@@ -92,7 +92,7 @@ function recherche_nouvelles()
 		$.get("search.php?data="+data,maj_resultats);
 	}
 	$( "#zone_saisie" ).autocomplete({
-		source: availableTags
+		source: recherches_tapees
 	});
 }
 
