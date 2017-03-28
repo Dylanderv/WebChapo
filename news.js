@@ -58,6 +58,7 @@ function selectionner_recherche(e){
 
 function init(){
   //var mdr = $.cookie('recherches');
+	recherches_tapees = window.localStorage.getItem("recherches_tapees").split(",");
 	var mdr = window.localStorage.getItem('recherches');
   if(mdr != undefined){
     rech = mdr.split(",");
@@ -85,7 +86,7 @@ function recherche_nouvelles()
 	//$("#resultats").empty();
 	var data = $("#zone_saisie").val();
 	recherches_tapees.push(data);
-
+	window.localStorage.setItem("recherches_tapees", recherches_tapees);
 	if(data != ""){
 		$("#wait").css("display","block");
 		recherche_courante = data;
