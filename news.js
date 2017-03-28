@@ -2,6 +2,13 @@
 var recherches=[];//tableau contenant des chaines de caracteres correspondant aux recherches stockees
 var recherche_courante;// chaine de caracteres correspondant a la recherche courante
 var recherche_courante_news=[]; // tableau d'objets de type resultats (avec titre, date et url)
+var recherches_tapees=[]
+$(function(){
+	$('#zone_saisie').autocomplete({
+		source : recherches_tapees
+	});
+});
+
 
 function ajouter_recherche()
 {
@@ -79,6 +86,7 @@ function recherche_nouvelles()
 {
 	//$("#resultats").empty();
 	var data = $("#zone_saisie").val();
+	recherches_tapees.push(data);
 	if(data != ""){
 		$("#wait").css("display","block");
 		recherche_courante = data;
