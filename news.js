@@ -77,6 +77,8 @@ function init(){
 	$( "#zone_saisie" ).autocomplete({
 		source: recherches_tapees
 	});
+
+	$( ".sortable" ).sortable();
 }
 
 
