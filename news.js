@@ -65,10 +65,10 @@ function init(){
   //var mdr = $.cookie('recherches');
 	var mdr = window.localStorage.getItem('recherches');
   if(mdr != undefined){
-    recherches = mdr.split(",");
-		for(var i = 0; i < recherches.length; i++){
+    rech = mdr.split(",");
+		for(var i = 0; i < rech.length; i++){
       $("#recherches-stockees").append
-	      ("<p class=\"titre-recherche\"><label>"+recherches[i]+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
+	      ("<p class=\"titre-recherche\"><label>"+rech[i]+"</label><img src=\"croix30.jpg\" class=\"icone-croix\"/> </p>");
       $("#recherches-stockees").last().find("label").attr("onclick","selectionner_recherche(this)");
       $("#recherches-stockees").last().find("img").attr("onclick","supprimer_recherche(this)");
 		}
