@@ -83,7 +83,8 @@ function init(){
 
 function recherche_nouvelles()
 {
-	//$("#resultats").empty();
+	$("#resultats").empty();
+	//$("#resultats").hide(1000);
 	var data = $("#zone_saisie").val();
 	recherches_tapees.push(data);
 	window.localStorage.setItem("recherches_tapees", recherches_tapees);
@@ -101,9 +102,10 @@ function recherche_nouvelles()
 function maj_resultats(res)
 {
 	$("#wait").css("display", "none");
+	$("#resultats").hide(0);
+	$("#resultats").fadeIn(300);
 	var resJSON = JSON.parse(res);
-	var currRes = $("#resultats").children();
-	$("#resultats").empty();
+
 	//var tab = $.cookie(recherche_courante);
 	var tab = window.localStorage.getItem(recherche_courante);
 	if(tab != undefined){
@@ -121,6 +123,7 @@ function maj_resultats(res)
 	for(var i = 0; i < resJSON.length; i++){
 		$("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href=\""+ resJSON[i].url +"\" target=\"_blank\"> "+resJSON[i].titre +" </a><span class=\"date_news\">"+resJSON[i].date +"</span><span class=\"action_news\" onclick=\"sauve_news(this)\"><img src=\"horloge15.jpg\"/></span></p>");
 	}
+
 }
 
 
