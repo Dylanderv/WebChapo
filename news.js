@@ -88,7 +88,11 @@ function recherche_nouvelles()
 	$("#resultats").empty();
 	//$("#resultats").hide(1000);
 	var data = $("#zone_saisie").val();
-	recherches_tapees.push(data);
+	if (recherches_tapees.indexOf(data) == -1) {
+		recherches_tapees.push(data);
+
+	}
+
 	window.localStorage.setItem("recherches_tapees", recherches_tapees);
 	if(data != ""){
 		$("#wait").css("display","block");
