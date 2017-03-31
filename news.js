@@ -36,6 +36,7 @@ function supprimer_recherche(e){
 	} else {
 		//$.removeCookie('recherches');
 		window.localStorage.removeItem("recherches");
+		localStorage.removeItem(recherche_courante);
 	}
 }
 
