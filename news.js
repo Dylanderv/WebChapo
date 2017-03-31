@@ -26,6 +26,7 @@ function ajouter_recherche()
 function supprimer_recherche(e){
 
 	parent = $(e).parent();
+	$("#resultats").empty();
 	pos = recherches.indexOf($(e).html());
 	recherches.splice(pos, 1);
   parent.remove();
