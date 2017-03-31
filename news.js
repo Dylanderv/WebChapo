@@ -43,8 +43,9 @@ function supprimer_recherche(e){
 function selectionner_recherche(e){
 	recherche_courante = $(e).html();
  	var zone_recherche = $("#zone_saisie");
- 	zone_recherche.val(recherche_courante);
 	$("#resultats").empty();
+ 	zone_recherche.val(recherche_courante);
+
 	//var tab=$.cookie($(e).text());
 	var tab = window.localStorage.getItem($(e).text());
 	if(tab != undefined){
@@ -86,6 +87,7 @@ function init(){
 function recherche_nouvelles()
 {
 	$("#resultats").empty();
+	recherche_courante_news = [];
 	//$("#resultats").hide(1000);
 	var data = $("#zone_saisie").val();
 	if (recherches_tapees.indexOf(data) == -1) {
