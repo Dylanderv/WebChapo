@@ -47,6 +47,7 @@ function selectionner_recherche(e){
 	$("#resultats").empty();
 	//var tab=$.cookie($(e).text());
 	var tab = window.localStorage.getItem($(e).text());
+	console.log($(e).text());
 	if(tab != undefined){
 		//var resJSON = JSON.parse(tab);
 		var resJSON = JSON.parse(tab);
@@ -147,7 +148,6 @@ function sauve_news(e)
 	var rechercheJSON=JSON.stringify(recherche_courante_news);
 	//$.cookie(recherche_courante,rechercheJSON,{ expires : 1000 });
 	window.localStorage.setItem(recherche_courante, rechercheJSON);
-
 }
 
 
